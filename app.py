@@ -10,7 +10,9 @@ from PIL import Image
 st.markdown("""# Scam Spotter
 ## Not sure about a website?""")
 
-# sidebar
+# sidebar to make the point
+
+
 # context / stats about scams
 
 
