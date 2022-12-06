@@ -81,7 +81,7 @@ st.image(images,width=350, caption=captions)
 
 answer1 = 'Website A'
 image_A = Image.open('images/scam/image_1.png')
-image_B = Image.open('images/scam/image_3.png')
+image_B = Image.open('images/safe/image_1.png')
 with st.container():
     col1, col2 = st.columns(2)
 
@@ -92,6 +92,50 @@ with st.container():
 
 
 answer2 = 'Website B'
+image_A = Image.open('images/safe/image_2.png')
+image_B = Image.open('images/scam/image_2.png')
+with st.container():
+    col1, col2 = st.columns(2)
+
+    with col1:
+        st.image(image_A, caption = 'Website A')
+    with col2:
+        st.image(image_B, caption = 'Website B')
+
+answer3 = 'Website B'
+image_A = Image.open('images/safe/image_3.png')
+image_B = Image.open('images/scam/image_3.png')
+with st.container():
+    col1, col2 = st.columns(2)
+
+    with col1:
+        st.image(image_A, caption = 'Website A')
+    with col2:
+        st.image(image_B, caption = 'Website B')
+
+
+answer4 = 'Website A'
+image_A = Image.open('images/scam/image_4.png')
+image_B = Image.open('images/safe/image_4.png')
+with st.container():
+    col1, col2 = st.columns(2)
+
+    with col1:
+        st.image(image_A, caption = 'Website A')
+    with col2:
+        st.image(image_B, caption = 'Website B')
+
+answer5 = 'Website B'
+image_A = Image.open('images/safe/image_5.png')
+image_B = Image.open('images/scam/image_5.png')
+with st.container():
+    col1, col2 = st.columns(2)
+
+    with col1:
+        st.image(image_A, caption = 'Website A')
+    with col2:
+        st.image(image_B, caption = 'Website B')
+
 
 
 
