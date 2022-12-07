@@ -51,6 +51,7 @@ def load_csv_text():
 df_scam_text, df_legit_text = load_csv_text()
 
 ##Generating Wordcloud
+
 full_text_scam = df_scam_text['text'][0]#.astype('str')
 #one_big_string = ''.join(full_text.tolist())
 wordcloud_scam = WordCloud(width=1000, height=1000, max_words=50).generate(df_scam_text['text'][0])
@@ -76,6 +77,7 @@ full_text = df_legit_text['text'][1]#.astype('str')
 #one_big_string = ''.join(full_text.tolist())
 wordcloud_legit3 = WordCloud(width=1000, height=1000, max_words=50).generate(df_legit_text['text'][2])
 wordcloud_legit3.to_file("legit_words3.png")
+
 # Display Wordclouds side by side:
 
 wordcloud_scam4 = WordCloud(width=1000, height=1000, max_words=50).generate(df_scam_text['text'][3])
