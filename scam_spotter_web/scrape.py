@@ -1,14 +1,14 @@
-from selenium import webdriver
-from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.chrome.options import Options
-import streamlit as st
+import numpy as np
 
 import string
 from PIL import Image
 from io import BytesIO
 
-import tensorflow as tf
-import numpy as np
+from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.options import Options
+
+import streamlit as st
 
 
 def clean1(text):
@@ -20,9 +20,8 @@ def clean1(text):
     return lowercased
 
 def scrape_photo_text(url):
-    # url = "https://www.barclays.co.uk/"
 
-    # initialisation of the webdriver
+    # initialise webdriver
     options = Options()
     options.headless = True
     options.add_argument("--start-maximized")
@@ -38,16 +37,16 @@ def scrape_photo_text(url):
     # taking the screenshot
     screenshot = driver.get_screenshot_as_png()
     screenshot = Image.open(BytesIO(screenshot))
+    screenshot = screenshot.resize((400, 300), Image.Resampling.BILINEAR)
     screenshot = np.array(screenshot)[:, :, :3]
-    screenshot = screenshot/255.
-    screenshot = tf.image.resize(screenshot, (300, 400))
+    screenshot = screenshot / 255.
 
-    # scrape the text
-    text = driver.find_elements(by = "tag name", value = "body")
-    final1 = text[0].get_attribute("innerText")
-    final_text = clean1(final1)
+    # scrape text
+    scraped_text = driver.find_elements(by = "tag name", value = "body")
+    scraped_text = scraped_text[0].get_attribute("innerText")
+    scraped_text = clean1(scraped_text)
 
-    return np.array([screenshot]), final_text
+    return np.array([screenshot]), scraped_text
 
 
 def scrape_text(url):
@@ -60,8 +59,8 @@ def scrape_text(url):
     driver.get(url)
 
     # scrape text
-    text = driver.find_elements(by = "tag name", value = "body")
-    final1 = text[0].get_attribute("innerText")
-    final_text = clean1(final1)
+    scraped_text = driver.find_elements(by = "tag name", value = "body")
+    scraped_text = scraped_text[0].get_attribute("innerText")
+    scraped_text = clean1(scraped_text)
 
-    return final_text
+    return scraped_text
