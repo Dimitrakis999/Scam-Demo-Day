@@ -24,6 +24,8 @@ st.markdown("""# Can you spot a scam website?""")
 #         image_11: 'https://fxfortrade.com/',
 #         image_12: 'https://awesomeaussieshepherd.com/'}
 
+st. write("--")
+
 
 count = 0
 
@@ -34,8 +36,10 @@ with st.container():
     col1, col2 = st.columns(2)
 
     with col1:
+        image_A = image_A.resize((500, 350))
         st.image(image_A, caption = 'Website A')
     with col2:
+        image_B = image_B.resize((500, 350))
         st.image(image_B, caption = 'Website B')
 
 with st.form(key='first_q', clear_on_submit=True):
@@ -64,8 +68,10 @@ with st.container():
     col1, col2 = st.columns(2)
 
     with col1:
+        image_A = image_A.resize((500, 350))
         st.image(image_A, caption = 'Website A')
     with col2:
+        image_B = image_B.resize((500, 350))
         st.image(image_B, caption = 'Website B')
 
 with st.form(key='second_q', clear_on_submit=True):
@@ -91,8 +97,10 @@ with st.container():
     col1, col2 = st.columns(2)
 
     with col1:
+        image_A = image_A.resize((500, 350))
         st.image(image_A, caption = 'Website A')
     with col2:
+        image_B = image_B.resize((500, 350))
         st.image(image_B, caption = 'Website B')
 
 with st.form(key='third_q', clear_on_submit=True):
@@ -117,8 +125,10 @@ with st.container():
     col1, col2 = st.columns(2)
 
     with col1:
+        image_A = image_A.resize((500, 350))
         st.image(image_A, caption = 'Website A')
     with col2:
+        image_B = image_B.resize((500, 350))
         st.image(image_B, caption = 'Website B')
 
 with st.form(key='fourth_q', clear_on_submit=True):
@@ -145,8 +155,10 @@ with st.container():
     col1, col2 = st.columns(2)
 
     with col1:
+        image_A = image_A.resize((500, 350))
         st.image(image_A, caption = 'Website A')
     with col2:
+        image_B = image_B.resize((500, 350))
         st.image(image_B, caption = 'Website B')
 
 with st.form(key='fifth_q', clear_on_submit=True):
