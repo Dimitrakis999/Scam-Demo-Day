@@ -15,20 +15,33 @@ from scam_spotter_web.load_models import load_model
 # And gives us a probability that website is scam
 
 
-DUAL_MODEL_PATH = 'models/model2'
-NLP_MODEL_PATH = 'models/nlp_model.h5'
-MODEL = load_model(DUAL_MODEL_PATH)
+DUAL_MODEL_PATH = 'models/dual_feed_model'
+NLP_MODEL_PATH = 'models/nlp_model'
+MODEL = load_model(NLP_MODEL_PATH)
 
 st.markdown('## Is that website a scam?')
 
-website = st.text_input('Enter URL here in https:// format')
+st.markdown("Enter a URL and we'll look at the landing page to see if it's a scam!")
+
+website = st.text_input('Enter URL in http:// or https:// format:')
 
 make_predict = st.button('Click to see if that website is a scam!')
 
+## NLP Prediction
 if make_predict:
-    prediction = predict_dual(MODEL, website)[0][0] * 100
+    prediction = predict_nlp(MODEL, website)
 
     if prediction:
-        out_text = prediction
+        out_text = prediction[0][0] * 100
 
-        st.success(f'Probability of this site being a scam is {out_text: .3f} %!')
+        st.success(f'Probability of this site being a scam is {out_text: .2f} %!')
+
+
+# ## Dual Prediction
+# if make_predict:
+#     prediction = predict_dual(MODEL, website)[0][0] * 100
+
+#     if prediction:
+#         out_text = prediction
+
+#         st.success(f'Probability of this site being a scam is {out_text: .3f} %!')

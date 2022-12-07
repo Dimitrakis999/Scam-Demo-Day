@@ -19,11 +19,14 @@ def predict_dual(model, url):
 
 def predict_nlp(model, url):
 
+    # Scrape text with selenium
     X_text = scrape_text(url)
 
+    # Process text for model ingestion
     X_text_padded = preprocess_pad([X_text])
 
-    prediction = model.predct([X_text_padded])
+    # Do prediction with model
+    prediction = model.predict(X_text_padded)
 
     return prediction
 
