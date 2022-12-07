@@ -1,3 +1,4 @@
+from style import get_css
 import streamlit as st
 import numpy as np
 import pandas as pd
@@ -9,7 +10,11 @@ import random
 
 #website = st.text_input("Enter the URL here")
 
-st.markdown("""# Can you spot a scam website?""")
+st.markdown(get_css(),unsafe_allow_html=True)
+
+st.image('images/logo.png')
+
+st.markdown("""# CAN YOU SPOT A SCAM WEBSITE?""")
 
 # URL_scam = {image_1: 'https://infinity-savings.xyz/',
 #         image_2: 'https://legacy-tradesfx.online/',
@@ -24,27 +29,28 @@ st.markdown("""# Can you spot a scam website?""")
 #         image_11: 'https://fxfortrade.com/',
 #         image_12: 'https://awesomeaussieshepherd.com/'}
 
-st. write("--")
+st.write(' ')
 
 
 count = 0
 
-answer1 = 'Website A'
-image_A = Image.open('images/scam/scams_1.png')#remember to shuffle
-image_B = Image.open('images/safe/legit_1.png')
+answer1 = 'WEBSITE A'
+with st.container():
+    image_A = Image.open('images/scam/scams_1.png')#remember to shuffle
+    image_B = Image.open('images/safe/legit_1.png')
 with st.container():
     col1, col2 = st.columns(2)
 
     with col1:
         image_A = image_A.resize((500, 350))#standardise the image size
-        st.image(image_A, caption = 'Website A')
+        st.image(image_A, caption = 'WEBSITE A')
     with col2:
         image_B = image_B.resize((500, 350))
-        st.image(image_B, caption = 'Website B')
+        st.image(image_B, caption = 'WEBSITE B')
 
 with st.form(key='first_q', clear_on_submit=True):
-    result1 = st.selectbox(label='Which website?', options=['','Website A', 'Website B'])
-    st.form_submit_button(label='Submit')
+    result1 = st.selectbox(label = '', options=['','WEBSITE A', 'WEBSITE B'])
+    st.form_submit_button(label='GUESS')
 
 if result1 == '':
     st.markdown('')
@@ -54,13 +60,13 @@ elif result1 == answer1:
     st.balloons()
     count +=1
 
-elif result1 == 'Website B':
+else:
     st.markdown('YOU BEEN SCAMMED!')
 
 
 
 
-answer2 = 'Website B'
+answer2 = 'WEBSITE B'
 image_A = Image.open('images/safe/legit_2.png')
 image_B = Image.open('images/scam/scams_2.png')
 
@@ -69,14 +75,14 @@ with st.container():
 
     with col1:
         image_A = image_A.resize((500, 350))
-        st.image(image_A, caption = 'Website A')
+        st.image(image_A, caption = 'WEBSITE A')
     with col2:
         image_B = image_B.resize((500, 350))
-        st.image(image_B, caption = 'Website B')
+        st.image(image_B, caption = 'WEBSITE B')
 
 with st.form(key='second_q', clear_on_submit=True):
-    result2 = st.selectbox(label='Which website?', options=['','Website A', 'Website B'])
-    st.form_submit_button(label='Submit')
+    result2 = st.selectbox(label='', options=['','WEBSITE A', 'WEBSITE B'])
+    st.form_submit_button(label='GUESS')
 
 if result2 == '':
     st.markdown('')
@@ -86,11 +92,11 @@ elif result2 == answer2:
     st.balloons()
     count +=1
 
-elif result2 == 'Website B':
+else:
     st.markdown('YOU BEEN SCAMMED!')
 
 
-answer3 = 'Website A'
+answer3 = 'WEBSITE A'
 image_A = Image.open('images/scam/scams_3.png')
 image_B = Image.open('images/safe/legit_3.png')
 with st.container():
@@ -98,14 +104,14 @@ with st.container():
 
     with col1:
         image_A = image_A.resize((500, 350))
-        st.image(image_A, caption = 'Website A')
+        st.image(image_A, caption = 'WEBSITE A')
     with col2:
         image_B = image_B.resize((500, 350))
-        st.image(image_B, caption = 'Website B')
+        st.image(image_B, caption = 'WEBSITE B')
 
 with st.form(key='third_q', clear_on_submit=True):
-    result3 = st.selectbox(label='Which website?', options=['','Website A', 'Website B'])
-    st.form_submit_button(label='Submit')
+    result3 = st.selectbox(label='', options=['','WEBSITE A', 'WEBSITE B'])
+    st.form_submit_button(label='GUESS')
 
 if result3 == '':
     st.markdown('')
@@ -115,10 +121,10 @@ elif result3 == answer3:
     st.balloons()
     count +=1
 
-elif result3 == 'Website B':
+else:
     st.markdown('YOU BEEN SCAMMED!')
 
-answer4 = 'Website A'
+answer4 = 'WEBSITE A'
 image_A = Image.open('images/scam/scams_4.png')
 image_B = Image.open('images/safe/legit_4.png')
 with st.container():
@@ -126,14 +132,14 @@ with st.container():
 
     with col1:
         image_A = image_A.resize((500, 350))
-        st.image(image_A, caption = 'Website A')
+        st.image(image_A, caption = 'WEBSITE A')
     with col2:
         image_B = image_B.resize((500, 350))
-        st.image(image_B, caption = 'Website B')
+        st.image(image_B, caption = 'WEBSITE B')
 
 with st.form(key='fourth_q', clear_on_submit=True):
-    result4 = st.selectbox(label='Which website?', options=['','Website A', 'Website B'])
-    st.form_submit_button(label='Submit')
+    result4 = st.selectbox(label='', options=['','WEBSITE A', 'WEBSITE B'])
+    st.form_submit_button(label='GUESS')
 
 if result4 == '':
     st.markdown('')
@@ -143,12 +149,12 @@ elif result4 == answer4:
     st.balloons()
     count +=1
 
-elif result4 == 'Website B':
+else:
     st.markdown('YOU BEEN SCAMMED!')
 
 
 
-answer5 = 'Website B'
+answer5 = 'WEBSITE B'
 image_A = Image.open('images/safe/legit_5.png')
 image_B = Image.open('images/scam/scams_5.png')
 with st.container():
@@ -156,14 +162,14 @@ with st.container():
 
     with col1:
         image_A = image_A.resize((500, 350))
-        st.image(image_A, caption = 'Website A')
+        st.image(image_A, caption = 'WEBSITE A')
     with col2:
         image_B = image_B.resize((500, 350))
-        st.image(image_B, caption = 'Website B')
+        st.image(image_B, caption = 'WEBSITE B')
 
 with st.form(key='fifth_q', clear_on_submit=True):
-    result5 = st.selectbox(label='Which website?', options=['','Website A', 'Website B'])
-    st.form_submit_button(label='Submit')
+    result5 = st.selectbox(label='', options=['','WEBSITE A', 'WEBSITE B'])
+    st.form_submit_button(label='GUESS')
 
 if result5 == '':
     st.markdown('')
@@ -173,7 +179,7 @@ elif result5 == answer5:
     st.balloons()
     count +=1
 
-elif result5 == 'Website B':
+else:
     st.markdown('YOU BEEN SCAMMED!')
 
 # baseline_score = 0.5
