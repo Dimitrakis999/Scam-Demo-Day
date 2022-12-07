@@ -45,11 +45,14 @@ with st.form(key='first_q', clear_on_submit=True):
 if result1 == '':
     st.markdown('')
 
-if result1 == answer1:
+elif result1 == answer1:
     st.markdown('YOU DID IT')
+    st.balloons()
     count +=1
-else:
+
+elif result1 == 'Website B':
     st.markdown('YOU BEEN SCAMMED!')
+
 
 
 
@@ -69,11 +72,17 @@ with st.form(key='second_q', clear_on_submit=True):
     result2 = st.selectbox(label='Which website?', options=['','Website A', 'Website B'])
     st.form_submit_button(label='Submit')
 
-if result2 == answer2:
+if result2 == '':
+    st.markdown('')
+
+elif result2 == answer2:
     st.markdown('YOU DID IT')
-    count+=1
-else:
+    st.balloons()
+    count +=1
+
+elif result2 == 'Website B':
     st.markdown('YOU BEEN SCAMMED!')
+
 
 answer3 = 'Website B'
 image_A = Image.open('images/scam/image_5.png')
@@ -90,10 +99,15 @@ with st.form(key='third_q', clear_on_submit=True):
     result3 = st.selectbox(label='Which website?', options=['','Website A', 'Website B'])
     st.form_submit_button(label='Submit')
 
-if result3 == answer3:
+if result3 == '':
+    st.markdown('')
+
+elif result3 == answer3:
     st.markdown('YOU DID IT')
-    count+=1
-else:
+    st.balloons()
+    count +=1
+
+elif result3 == 'Website B':
     st.markdown('YOU BEEN SCAMMED!')
 
 answer4 = 'Website A'
@@ -111,11 +125,18 @@ with st.form(key='fourth_q', clear_on_submit=True):
     result4 = st.selectbox(label='Which website?', options=['','Website A', 'Website B'])
     st.form_submit_button(label='Submit')
 
-if result4 == answer4:
+if result4 == '':
+    st.markdown('')
+
+elif result4 == answer4:
     st.markdown('YOU DID IT')
-    count+=1
-else:
+    st.balloons()
+    count +=1
+
+elif result4 == 'Website B':
     st.markdown('YOU BEEN SCAMMED!')
+
+
 
 answer5 = 'Website B'
 image_A = Image.open('images/scam/image_8.png')
@@ -132,10 +153,15 @@ with st.form(key='fifth_q', clear_on_submit=True):
     result5 = st.selectbox(label='Which website?', options=['','Website A', 'Website B'])
     st.form_submit_button(label='Submit')
 
-if result5 == answer5:
+if result5 == '':
+    st.markdown('')
+
+elif result5 == answer5:
     st.markdown('YOU DID IT')
-    count+=1
-else:
+    st.balloons()
+    count +=1
+
+elif result5 == 'Website B':
     st.markdown('YOU BEEN SCAMMED!')
 
 # baseline_score = 0.5
