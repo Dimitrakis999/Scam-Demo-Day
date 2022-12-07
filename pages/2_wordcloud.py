@@ -53,12 +53,12 @@ df_scam_text, df_legit_text = load_csv_text()
 ##Generating Wordcloud
 full_text = df_scam_text['text'][0]#.astype('str')
 #one_big_string = ''.join(full_text.tolist())
-wordcloud = WordCloud().generate(full_text)
+wordcloud = WordCloud(width=1000, height=1000, max_words=50).generate(full_text)
 
 #Generating second Wordcloud
 full_text = df_scam_text['text'][1]#.astype('str')
 #one_big_string = ''.join(full_text.tolist())
-wordcloud_2 = WordCloud().generate(full_text)
+wordcloud_2 = WordCloud(width=1000, height=1000, max_words=50).generate(full_text)
 
 
 # Display Wordclouds side by side:
@@ -216,13 +216,35 @@ st.write(f"You got {count} out of 5 correct")
 #Model score
 
 
+#Display overall wordcloud for all scam and safe websites
 
 
+st.markdown('Wordclouds of scam and safe websites are quite similar')
 
+full_text = df_scam_text['text'].astype('str')
+one_big_string = ''.join(full_text.tolist())
+wordcloud1 = WordCloud(width=1000, height=1000, max_words=50, background_color='white', min_word_length=3).generate(one_big_string)
 
+full_text_2 = df_legit_text['text'].astype('str')
+one_big_string_2 = ''.join(full_text_2.tolist())
+wordcloud2 = WordCloud(width=1000, height=1000, max_words=50, background_color='white', min_word_length=3).generate(one_big_string_2)
 
+with st.container():
+    col1, col2 = st.columns(2)
 
+    with col1:
+        st.set_option('deprecation.showPyplotGlobalUse', False)
+        plt.imshow(wordcloud1, interpolation='bilinear')
+        plt.axis("off")
+        plt.show()
+        st.pyplot()
 
+    with col2:
+        st.set_option('deprecation.showPyplotGlobalUse', False)
+        plt.imshow(wordcloud2, interpolation='bilinear')
+        plt.axis("off")
+        plt.show()
+        st.pyplot()
 
 
 
