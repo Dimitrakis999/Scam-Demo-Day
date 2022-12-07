@@ -42,6 +42,9 @@ with st.form(key='first_q', clear_on_submit=True):
     result1 = st.selectbox(label='Which website?', options=['','Website A', 'Website B'])
     st.form_submit_button(label='Submit')
 
+if result1 == '':
+    st.markdown('')
+
 if result1 == answer1:
     st.markdown('YOU DID IT')
     count +=1
