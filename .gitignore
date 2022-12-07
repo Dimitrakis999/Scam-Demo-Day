@@ -1,0 +1,19 @@
+# Jupyter Notebooks
+.pytest_cache
+__pycache__
+*checkpoint.ipynb
+*.ipynb_checkpoints
+*/.ipynb_checkpoints
+
+# Other stuff
+*.gz
+*PKG-INFO
+*.egg-info
+*Zone.Identifier
+*.png
+
+.python-version
+
+# IDE #
+*.vscode
+

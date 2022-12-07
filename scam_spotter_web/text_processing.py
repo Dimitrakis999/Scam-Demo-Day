@@ -6,8 +6,6 @@ import string
 from gensim.models import Word2Vec
 import gensim.downloader as api
 from keras.preprocessing.sequence import pad_sequences
-nltk.download('stopwords')
-
 
 def clean(text):
     text = text.split()
@@ -26,10 +24,8 @@ def clean(text):
 def text_cleaner(list_text):
     list_clean_text=[]
     for text in list_text:
-        #print(text)
         cleen_txt=clean(text)#[0]
         list_clean_text.append(cleen_txt)
-        #print(list_clean_text)
     return list_clean_text
 
 def embed_sentence_with_TF(word2vec, sentence):
@@ -38,7 +34,7 @@ def embed_sentence_with_TF(word2vec, sentence):
         if word in word2vec:
             embedded_sentence.append(word2vec[word])
 
-    return np.array(embedded_sentence)
+    return embedded_sentence
 
 # Function that converts a list of sentences into a list of matrices
 def embedding(word2vec, sentences):

@@ -1,6 +1,7 @@
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
+import streamlit as st
 
 import string
 from PIL import Image
@@ -15,15 +16,22 @@ def clean1(text):
         text = text.replace(punctuation, ' ') # Remove Punctuation
     lowercased = text.lower() # Lower Case
     lowercased=lowercased.replace('\n','')
-    
+
     return lowercased
 
 def scrape_photo_text(url):
+    # url = "https://www.barclays.co.uk/"
 
     # initialisation of the webdriver
     options = Options()
     options.headless = True
     options.add_argument("--start-maximized")
+
+    # @st.experimental_singleton
+    # def get_driver():
+    #     return webdriver.Chrome(ChromeDriverManager().install(), options=options)
+    # st.write(url)
+
     driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
     driver.get(url)
 
@@ -35,8 +43,25 @@ def scrape_photo_text(url):
     screenshot = tf.image.resize(screenshot, (300, 400))
 
     # scrape the text
-    text = driver.find_elements( by = "tag name", value = "body")
+    text = driver.find_elements(by = "tag name", value = "body")
     final1 = text[0].get_attribute("innerText")
-    final_text=clean1(final1)
+    final_text = clean1(final1)
 
     return np.array([screenshot]), final_text
+
+
+def scrape_text(url):
+
+    # Initialise webdriver
+    options = Options()
+    options.headless = True
+    options.add_argument("--start-maximized")
+    driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
+    driver.get(url)
+
+    # scrape text
+    text = driver.find_elements(by = "tag name", value = "body")
+    final1 = text[0].get_attribute("innerText")
+    final_text = clean1(final1)
+
+    return final_text
