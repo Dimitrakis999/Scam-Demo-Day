@@ -12,4 +12,10 @@ import random
 #Takes URL and spits out image (and wordcloud)
 #And gives us a probability that website is scam
 
+from scam_spotter_web.main import predict_all
+from scam_spotter_web.predict import load_model
+
+MODEL_PATH = '../models/model2'
+MODEL = load_model(MODEL_PATH)
+
 st.text_input("Enter the URL here")
