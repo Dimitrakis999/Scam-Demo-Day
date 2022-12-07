@@ -30,13 +30,13 @@ st. write("--")
 count = 0
 
 answer1 = 'Website A'
-image_A = Image.open('images/scam/image_1.png')
-image_B = Image.open('images/scam/image_3.png')
+image_A = Image.open('images/scam/scam_1.png')#remember to shuffle
+image_B = Image.open('images/safe/legit_1.png')
 with st.container():
     col1, col2 = st.columns(2)
 
     with col1:
-        image_A = image_A.resize((500, 350))
+        image_A = image_A.resize((500, 350))#standardise the image size
         st.image(image_A, caption = 'Website A')
     with col2:
         image_B = image_B.resize((500, 350))
@@ -61,8 +61,8 @@ elif result1 == 'Website B':
 
 
 answer2 = 'Website B'
-image_A = Image.open('images/scam/image_2.png')
-image_B = Image.open('images/scam/image_5.png')
+image_A = Image.open('images/safe/legit_2.png')
+image_B = Image.open('images/scam/scam_2.png')
 
 with st.container():
     col1, col2 = st.columns(2)
@@ -90,9 +90,9 @@ elif result2 == 'Website B':
     st.markdown('YOU BEEN SCAMMED!')
 
 
-answer3 = 'Website B'
-image_A = Image.open('images/scam/image_5.png')
-image_B = Image.open('images/scam/image_6.png')
+answer3 = 'Website A'
+image_A = Image.open('images/scam/scam_3.png')
+image_B = Image.open('images/safe/legit_3.png')
 with st.container():
     col1, col2 = st.columns(2)
 
@@ -119,8 +119,8 @@ elif result3 == 'Website B':
     st.markdown('YOU BEEN SCAMMED!')
 
 answer4 = 'Website A'
-image_A = Image.open('images/scam/image_4.png')
-image_B = Image.open('images/scam/image_7.png')
+image_A = Image.open('images/scam/scam_4.png')
+image_B = Image.open('images/safe/legit_4.png')
 with st.container():
     col1, col2 = st.columns(2)
 
@@ -149,8 +149,8 @@ elif result4 == 'Website B':
 
 
 answer5 = 'Website B'
-image_A = Image.open('images/scam/image_8.png')
-image_B = Image.open('images/scam/image_5.png')
+image_A = Image.open('images/safe/legit_5.png')
+image_B = Image.open('images/scam/scam_5.png')
 with st.container():
     col1, col2 = st.columns(2)
 
