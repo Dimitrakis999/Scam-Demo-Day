@@ -51,24 +51,48 @@ def load_csv_text():
 df_scam_text, df_legit_text = load_csv_text()
 
 ##Generating Wordcloud
-full_text = df_scam_text['text'][0]#.astype('str')
+full_text_scam = df_scam_text['text'][0]#.astype('str')
 #one_big_string = ''.join(full_text.tolist())
-wordcloud_scam = WordCloud(width=1000, height=1000, max_words=50).generate(full_text)
+wordcloud_scam = WordCloud(width=1000, height=1000, max_words=50).generate(df_scam_text['text'][0])
 wordcloud_scam.to_file("scam_words.png")
 #Generating second Wordsmcacloud
-full_text = df_legit_text['text'][1]#.astype('str')
+full_text_legit = df_legit_text['text'][1]#.astype('str')
 #one_big_string = ''.join(full_text.tolist())
-wordcloud_legit = WordCloud(width=1000, height=1000, max_words=50).generate(full_text)
+wordcloud_legit = WordCloud(width=1000, height=1000, max_words=50).generate(df_legit_text['text'][0])
 wordcloud_legit.to_file("legit_words.png")
 
-wordcloud_scam2 = WordCloud(width=1000, height=1000, max_words=50).generate(full_text)
-wordcloud_scam2.to_file("scam_words1.png")
+wordcloud_scam2 = WordCloud(width=1000, height=1000, max_words=50).generate(df_scam_text['text'][1])
+wordcloud_scam2.to_file("scam_words2.png")
 #Generating second Wordsmcacloud
 full_text = df_legit_text['text'][1]#.astype('str')
 #one_big_string = ''.join(full_text.tolist())
-wordcloud_legit2 = WordCloud(width=1000, height=1000, max_words=50).generate(full_text)
-wordcloud_legit.to_file("legit_words2.png")
+wordcloud_legit2 = WordCloud(width=1000, height=1000, max_words=50).generate(df_legit_text['text'][1])
+wordcloud_legit2.to_file("legit_words2.png")
+
+wordcloud_scam3 = WordCloud(width=1000, height=1000, max_words=50).generate(df_scam_text['text'][2])
+wordcloud_scam3.to_file("scam_words3.png")
+#Generating second Wordsmcacloud
+full_text = df_legit_text['text'][1]#.astype('str')
+#one_big_string = ''.join(full_text.tolist())
+wordcloud_legit3 = WordCloud(width=1000, height=1000, max_words=50).generate(df_legit_text['text'][2])
+wordcloud_legit3.to_file("legit_words3.png")
 # Display Wordclouds side by side:
+
+wordcloud_scam4 = WordCloud(width=1000, height=1000, max_words=50).generate(df_scam_text['text'][3])
+wordcloud_scam4.to_file("scam_words4.png")
+#Generating second Wordsmcacloud
+full_text = df_legit_text['text'][1]#.astype('str')
+#one_big_string = ''.join(full_text.tolist())
+wordcloud_legit4 = WordCloud(width=1000, height=1000, max_words=50).generate(df_legit_text['text'][3])
+wordcloud_legit4.to_file("legit_words4.png")
+
+wordcloud_scam5 = WordCloud(width=1000, height=1000, max_words=50).generate(df_scam_text['text'][4])
+wordcloud_scam5.to_file("scam_words5.png")
+#Generating second Wordsmcacloud
+full_text = df_legit_text['text'][1]#.astype('str')
+#one_big_string = ''.join(full_text.tolist())
+wordcloud_legit5 = WordCloud(width=1000, height=1000, max_words=50).generate(df_legit_text['text'][4])
+wordcloud_legit5.to_file("legit_words5.png")
 
 count = 0
 
@@ -79,14 +103,14 @@ with st.container():
 
     with col1:
         st.set_option('deprecation.showPyplotGlobalUse', False)
-        plt.imshow(wordcloud, interpolation='bilinear')
+        plt.imshow(wordcloud_scam, interpolation='bilinear')
         plt.axis("off")
         plt.show()
         st.pyplot()
 
     with col2:
         st.set_option('deprecation.showPyplotGlobalUse', False)
-        plt.imshow(wordcloud_2, interpolation='bilinear')
+        plt.imshow(wordcloud_legit, interpolation='bilinear')
         plt.axis("off")
         plt.show()
         st.pyplot()
@@ -110,14 +134,14 @@ with st.container():
 
     with col1:
         st.set_option('deprecation.showPyplotGlobalUse', False)
-        plt.imshow(wordcloud, interpolation='bilinear')
+        plt.imshow(wordcloud_scam2, interpolation='bilinear')
         plt.axis("off")
         plt.show()
         st.pyplot()
 
     with col2:
         st.set_option('deprecation.showPyplotGlobalUse', False)
-        plt.imshow(wordcloud_2, interpolation='bilinear')
+        plt.imshow(wordcloud_legit2, interpolation='bilinear')
         plt.axis("off")
         plt.show()
         st.pyplot()
@@ -138,14 +162,14 @@ with st.container():
 
     with col1:
         st.set_option('deprecation.showPyplotGlobalUse', False)
-        plt.imshow(wordcloud, interpolation='bilinear')
+        plt.imshow(wordcloud_scam3, interpolation='bilinear')
         plt.axis("off")
         plt.show()
         st.pyplot()
 
     with col2:
         st.set_option('deprecation.showPyplotGlobalUse', False)
-        plt.imshow(wordcloud_2, interpolation='bilinear')
+        plt.imshow(wordcloud_legit3, interpolation='bilinear')
         plt.axis("off")
         plt.show()
         st.pyplot()
@@ -166,14 +190,14 @@ with st.container():
 
     with col1:
         st.set_option('deprecation.showPyplotGlobalUse', False)
-        plt.imshow(wordcloud, interpolation='bilinear')
+        plt.imshow(wordcloud_scam4, interpolation='bilinear')
         plt.axis("off")
         plt.show()
         st.pyplot()
 
     with col2:
         st.set_option('deprecation.showPyplotGlobalUse', False)
-        plt.imshow(wordcloud_2, interpolation='bilinear')
+        plt.imshow(wordcloud_legit4, interpolation='bilinear')
         plt.axis("off")
         plt.show()
         st.pyplot()
@@ -194,14 +218,14 @@ with st.container():
 
     with col1:
         st.set_option('deprecation.showPyplotGlobalUse', False)
-        plt.imshow(wordcloud, interpolation='bilinear')
+        plt.imshow(wordcloud_scam5, interpolation='bilinear')
         plt.axis("off")
         plt.show()
         st.pyplot()
 
     with col2:
         st.set_option('deprecation.showPyplotGlobalUse', False)
-        plt.imshow(wordcloud_2, interpolation='bilinear')
+        plt.imshow(wordcloud_legit5, interpolation='bilinear')
         plt.axis("off")
         plt.show()
         st.pyplot()
