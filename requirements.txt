@@ -5,14 +5,12 @@ numpy==1.21.6
 wordcloud
 matplotlib==3.5.3
 Pillow==9.2.0
-random
 
 # Predict
 tensorflow==2.8.3
 
 nltk==3.7
 gensim==4.2.0
-
 scikit-learn==1.0.2
 
 # Selenium
