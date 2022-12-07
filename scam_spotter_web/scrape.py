@@ -15,7 +15,7 @@ def clean1(text):
         text = text.replace(punctuation, ' ') # Remove Punctuation
     lowercased = text.lower() # Lower Case
     lowercased=lowercased.replace('\n','')
-    
+
     return lowercased
 
 def scrape_photo_text(url):
@@ -35,8 +35,8 @@ def scrape_photo_text(url):
     screenshot = tf.image.resize(screenshot, (300, 400))
 
     # scrape the text
-    text = driver.find_elements( by = "tag name", value = "body")
+    text = driver.find_elements(by = "tag name", value = "body")
     final1 = text[0].get_attribute("innerText")
-    final_text=clean1(final1)
+    final_text = clean1(final1)
 
     return np.array([screenshot]), final_text
