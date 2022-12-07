@@ -44,8 +44,8 @@ st.markdown("""# Is text more helpful?""")
 #Load text data from scam URLs
 @st.experimental_singleton
 def load_csv_text():
-    df_scam_text = pd.read_csv('data/scam_text.csv', index_col=0)
-    df_legit_text = pd.read_csv('data/legit_text.csv', index_col=0)
+    df_scam_text = pd.read_csv('data/scam_text_prediction.csv', index_col=0)
+    df_legit_text = pd.read_csv('data/legit_text_prediction.csv', index_col=0)
     return df_scam_text, df_legit_text
 
 df_scam_text, df_legit_text = load_csv_text()
@@ -53,14 +53,21 @@ df_scam_text, df_legit_text = load_csv_text()
 ##Generating Wordcloud
 full_text = df_scam_text['text'][0]#.astype('str')
 #one_big_string = ''.join(full_text.tolist())
-wordcloud = WordCloud(width=1000, height=1000, max_words=50).generate(full_text)
-
-#Generating second Wordcloud
-full_text = df_scam_text['text'][1]#.astype('str')
+wordcloud_scam = WordCloud(width=1000, height=1000, max_words=50).generate(full_text)
+wordcloud_scam.to_file("scam_words.png")
+#Generating second Wordsmcacloud
+full_text = df_legit_text['text'][1]#.astype('str')
 #one_big_string = ''.join(full_text.tolist())
-wordcloud_2 = WordCloud(width=1000, height=1000, max_words=50).generate(full_text)
+wordcloud_legit = WordCloud(width=1000, height=1000, max_words=50).generate(full_text)
+wordcloud_legit.to_file("legit_words.png")
 
-
+wordcloud_scam2 = WordCloud(width=1000, height=1000, max_words=50).generate(full_text)
+wordcloud_scam2.to_file("scam_words1.png")
+#Generating second Wordsmcacloud
+full_text = df_legit_text['text'][1]#.astype('str')
+#one_big_string = ''.join(full_text.tolist())
+wordcloud_legit2 = WordCloud(width=1000, height=1000, max_words=50).generate(full_text)
+wordcloud_legit.to_file("legit_words2.png")
 # Display Wordclouds side by side:
 
 count = 0
