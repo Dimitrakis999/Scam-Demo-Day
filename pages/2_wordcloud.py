@@ -11,34 +11,7 @@ import random
 
 st.markdown("""# Is text more helpful?""")
 
-#Function to scrape text from selected URL
-#Should return a list of strings that can generate wordcloud
-
-# def scrape_this_url():
-#     url = ''
-#     text = request.get( ... )
-#     return text
-
-
-#Run a pre-selected list of scam and safe URLs through the function
-#and store text for each in a variable
-
-# URLs_scam = ['url_1', 'url_2', 'url_3', 'url_4', 'url_5']
-# URLs_safe = ['url_1', 'url_2', 'url_3', 'url_4', 'url_5']
-
-# for url in range(len(URLs_scam)+1):
-#     scam_text_1 = scrape_this_url(URLs_scam[url])
-#     scam_text_2 = scrape_this_url(URLs_scam[url])
-#     scam_text_3 = scrape_this_url(URLs_scam[url])
-#     scam_text_4 = scrape_this_url(URLs_scam[url])
-#     scam_text_5 = scrape_this_url(URLs_scam[url])
-
-# for url in range(len(URLs_safe)+1):
-#     safe_text_1 = scrape_this_url(URLs_safe[url])
-#     safe_text_2 = scrape_this_url(URLs_safe[url])
-#     safe_text_3 = scrape_this_url(URLs_safe[url])
-#     safe_text_4 = scrape_this_url(URLs_safe[url])
-#     safe_text_5 = scrape_this_url(URLs_safe[url])
+st. write("--")
 
 
 #Load text data from scam URLs
@@ -52,49 +25,49 @@ df_scam_text, df_legit_text = load_csv_text()
 
 ##Generating Wordcloud
 
-full_text_scam = df_scam_text['text'][0]#.astype('str')
-#one_big_string = ''.join(full_text.tolist())
-wordcloud_scam = WordCloud(width=1000, height=1000, max_words=50).generate(df_scam_text['text'][0])
-wordcloud_scam.to_file("scam_words.png")
-#Generating second Wordsmcacloud
-full_text_legit = df_legit_text['text'][1]#.astype('str')
-#one_big_string = ''.join(full_text.tolist())
-wordcloud_legit = WordCloud(width=1000, height=1000, max_words=50).generate(df_legit_text['text'][0])
-wordcloud_legit.to_file("legit_words.png")
+# full_text_scam = df_scam_text['text'][0]#.astype('str')
+# #one_big_string = ''.join(full_text.tolist())
+# wordcloud_scam = WordCloud(width=1000, height=1000, max_words=50).generate(df_scam_text['text'][0])
+# wordcloud_scam.to_file("scam_words.png")
+# #Generating second Wordsmcacloud
+# full_text_legit = df_legit_text['text'][1]#.astype('str')
+# #one_big_string = ''.join(full_text.tolist())
+# wordcloud_legit = WordCloud(width=1000, height=1000, max_words=50).generate(df_legit_text['text'][0])
+# wordcloud_legit.to_file("legit_words.png")
 
-wordcloud_scam2 = WordCloud(width=1000, height=1000, max_words=50).generate(df_scam_text['text'][1])
-wordcloud_scam2.to_file("scam_words2.png")
-#Generating second Wordsmcacloud
-full_text = df_legit_text['text'][1]#.astype('str')
-#one_big_string = ''.join(full_text.tolist())
-wordcloud_legit2 = WordCloud(width=1000, height=1000, max_words=50).generate(df_legit_text['text'][1])
-wordcloud_legit2.to_file("legit_words2.png")
+# wordcloud_scam2 = WordCloud(width=1000, height=1000, max_words=50).generate(df_scam_text['text'][1])
+# wordcloud_scam2.to_file("scam_words2.png")
+# #Generating second Wordsmcacloud
+# full_text = df_legit_text['text'][1]#.astype('str')
+# #one_big_string = ''.join(full_text.tolist())
+# wordcloud_legit2 = WordCloud(width=1000, height=1000, max_words=50).generate(df_legit_text['text'][1])
+# wordcloud_legit2.to_file("legit_words2.png")
 
-wordcloud_scam3 = WordCloud(width=1000, height=1000, max_words=50).generate(df_scam_text['text'][2])
-wordcloud_scam3.to_file("scam_words3.png")
-#Generating second Wordsmcacloud
-full_text = df_legit_text['text'][1]#.astype('str')
-#one_big_string = ''.join(full_text.tolist())
-wordcloud_legit3 = WordCloud(width=1000, height=1000, max_words=50).generate(df_legit_text['text'][2])
-wordcloud_legit3.to_file("legit_words3.png")
+# wordcloud_scam3 = WordCloud(width=1000, height=1000, max_words=50).generate(df_scam_text['text'][2])
+# wordcloud_scam3.to_file("scam_words3.png")
+# #Generating second Wordsmcacloud
+# full_text = df_legit_text['text'][1]#.astype('str')
+# #one_big_string = ''.join(full_text.tolist())
+# wordcloud_legit3 = WordCloud(width=1000, height=1000, max_words=50).generate(df_legit_text['text'][2])
+# wordcloud_legit3.to_file("legit_words3.png")
 
-# Display Wordclouds side by side:
+# # Display Wordclouds side by side:
 
-wordcloud_scam4 = WordCloud(width=1000, height=1000, max_words=50).generate(df_scam_text['text'][3])
-wordcloud_scam4.to_file("scam_words4.png")
-#Generating second Wordsmcacloud
-full_text = df_legit_text['text'][1]#.astype('str')
-#one_big_string = ''.join(full_text.tolist())
-wordcloud_legit4 = WordCloud(width=1000, height=1000, max_words=50).generate(df_legit_text['text'][3])
-wordcloud_legit4.to_file("legit_words4.png")
+# wordcloud_scam4 = WordCloud(width=1000, height=1000, max_words=50).generate(df_scam_text['text'][3])
+# wordcloud_scam4.to_file("scam_words4.png")
+# #Generating second Wordsmcacloud
+# full_text = df_legit_text['text'][1]#.astype('str')
+# #one_big_string = ''.join(full_text.tolist())
+# wordcloud_legit4 = WordCloud(width=1000, height=1000, max_words=50).generate(df_legit_text['text'][3])
+# wordcloud_legit4.to_file("legit_words4.png")
 
-wordcloud_scam5 = WordCloud(width=1000, height=1000, max_words=50).generate(df_scam_text['text'][4])
-wordcloud_scam5.to_file("scam_words5.png")
-#Generating second Wordsmcacloud
-full_text = df_legit_text['text'][1]#.astype('str')
-#one_big_string = ''.join(full_text.tolist())
-wordcloud_legit5 = WordCloud(width=1000, height=1000, max_words=50).generate(df_legit_text['text'][4])
-wordcloud_legit5.to_file("legit_words5.png")
+# wordcloud_scam5 = WordCloud(width=1000, height=1000, max_words=50).generate(df_scam_text['text'][4])
+# wordcloud_scam5.to_file("scam_words5.png")
+# #Generating second Wordsmcacloud
+# full_text = df_legit_text['text'][1]#.astype('str')
+# #one_big_string = ''.join(full_text.tolist())
+# wordcloud_legit5 = WordCloud(width=1000, height=1000, max_words=50).generate(df_legit_text['text'][4])
+# wordcloud_legit5.to_file("legit_words5.png")
 
 count = 0
 
@@ -104,29 +77,26 @@ with st.container():
     col1, col2 = st.columns(2)
 
     with col1:
-        st.set_option('deprecation.showPyplotGlobalUse', False)
-        plt.imshow(wordcloud_scam, interpolation='bilinear')
-        plt.axis("off")
-        plt.show()
-        st.pyplot()
+        st.image('images/wordclouds/scam/scam_words1.png')
 
     with col2:
-        st.set_option('deprecation.showPyplotGlobalUse', False)
-        plt.imshow(wordcloud_legit, interpolation='bilinear')
-        plt.axis("off")
-        plt.show()
-        st.pyplot()
-
+        st.image('images/wordclouds/safe/legit_words.png')
 
 with st.form(key='first_q', clear_on_submit=True):
     result1 = st.selectbox(label='Which website?', options=['','Website A', 'Website B'])
     st.form_submit_button(label='Submit')
 
-if result1 == answer1:
+if result1 == '':
+    st.markdown('')
+
+elif result1 == answer1:
     st.markdown('YOU DID IT')
+    st.balloons()
     count +=1
+
 else:
     st.markdown('YOU BEEN SCAMMED!')
+
 
 
 answer2 = 'Website B'
@@ -135,82 +105,76 @@ with st.container():
     col1, col2 = st.columns(2)
 
     with col1:
-        st.set_option('deprecation.showPyplotGlobalUse', False)
-        plt.imshow(wordcloud_scam2, interpolation='bilinear')
-        plt.axis("off")
-        plt.show()
-        st.pyplot()
+        st.image('images/wordclouds/scam/scam_words2.png')
 
     with col2:
-        st.set_option('deprecation.showPyplotGlobalUse', False)
-        plt.imshow(wordcloud_legit2, interpolation='bilinear')
-        plt.axis("off")
-        plt.show()
-        st.pyplot()
+        st.image('images/wordclouds/safe/legit_words2.png')
 
 with st.form(key='second_q', clear_on_submit=True):
     result2 = st.selectbox(label='Which website?', options=['','Website A', 'Website B'])
     st.form_submit_button(label='Submit')
 
-if result2 == answer2:
+if result2 == '':
+    st.markdown('')
+
+elif result2 == answer2:
     st.markdown('YOU DID IT')
-    count+=1
+    st.balloons()
+    count +=1
+
 else:
     st.markdown('YOU BEEN SCAMMED!')
+
 
 answer3 = 'Website B'
 with st.container():
     col1, col2 = st.columns(2)
 
     with col1:
-        st.set_option('deprecation.showPyplotGlobalUse', False)
-        plt.imshow(wordcloud_scam3, interpolation='bilinear')
-        plt.axis("off")
-        plt.show()
-        st.pyplot()
+        st.image('images/wordclouds/scam/scam_words3.png')
 
     with col2:
-        st.set_option('deprecation.showPyplotGlobalUse', False)
-        plt.imshow(wordcloud_legit3, interpolation='bilinear')
-        plt.axis("off")
-        plt.show()
-        st.pyplot()
+        st.image('images/wordclouds/safe/legit_words3.png')
 
 with st.form(key='third_q', clear_on_submit=True):
     result3 = st.selectbox(label='Which website?', options=['','Website A', 'Website B'])
     st.form_submit_button(label='Submit')
 
-if result3 == answer3:
+if result3 == '':
+    st.markdown('')
+
+elif result3 == answer3:
     st.markdown('YOU DID IT')
-    count+=1
+    st.balloons()
+    count +=1
+
 else:
     st.markdown('YOU BEEN SCAMMED!')
+
+
 
 answer4 = 'Website A'
 with st.container():
     col1, col2 = st.columns(2)
 
     with col1:
-        st.set_option('deprecation.showPyplotGlobalUse', False)
-        plt.imshow(wordcloud_scam4, interpolation='bilinear')
-        plt.axis("off")
-        plt.show()
-        st.pyplot()
+        st.image('images/wordclouds/scam/scam_words4.png')
 
     with col2:
-        st.set_option('deprecation.showPyplotGlobalUse', False)
-        plt.imshow(wordcloud_legit4, interpolation='bilinear')
-        plt.axis("off")
-        plt.show()
-        st.pyplot()
+        st.image('images/wordclouds/safe/legit_words4.png')
 
 with st.form(key='fourth_q', clear_on_submit=True):
     result4 = st.selectbox(label='Which website?', options=['','Website A', 'Website B'])
     st.form_submit_button(label='Submit')
 
-if result4 == answer4:
+if result4 == '':
+    st.markdown('')
+
+elif result4 == answer4:
     st.markdown('YOU DID IT')
-    count+=1
+    st.balloons()
+    count +=1
+
 else:
     st.markdown('YOU BEEN SCAMMED!')
 
@@ -219,28 +183,27 @@ with st.container():
     col1, col2 = st.columns(2)
 
     with col1:
-        st.set_option('deprecation.showPyplotGlobalUse', False)
-        plt.imshow(wordcloud_scam5, interpolation='bilinear')
-        plt.axis("off")
-        plt.show()
-        st.pyplot()
+        st.image('images/wordclouds/scam/scam_words5.png')
 
     with col2:
-        st.set_option('deprecation.showPyplotGlobalUse', False)
-        plt.imshow(wordcloud_legit5, interpolation='bilinear')
-        plt.axis("off")
-        plt.show()
-        st.pyplot()
+        st.image('images/wordclouds/safe/legit_words5.png')
 
 with st.form(key='fifth_q', clear_on_submit=True):
     result5 = st.selectbox(label='Which website?', options=['','Website A', 'Website B'])
     st.form_submit_button(label='Submit')
 
-if result5 == answer5:
+if result5 == '':
+    st.markdown('')
+
+elif result5 == answer5:
     st.markdown('YOU DID IT')
-    count+=1
+    st.balloons()
+    count +=1
+
 else:
     st.markdown('YOU BEEN SCAMMED!')
+
+
 
 
 #Audience score
@@ -249,7 +212,7 @@ st.write(f"You got {count} out of 5 correct")
 #Model score
 
 
-#Display overall wordcloud for all scam and safe websites
+#Display overall wordcloud for scam and safe websites
 
 
 st.markdown('Wordclouds of scam and safe websites are quite similar')
@@ -257,27 +220,31 @@ st.markdown('Wordclouds of scam and safe websites are quite similar')
 full_text = df_scam_text['text'].astype('str')
 one_big_string = ''.join(full_text.tolist())
 wordcloud1 = WordCloud(width=1000, height=1000, max_words=50, background_color='white', min_word_length=3).generate(one_big_string)
+wordcloud1.to_file("overall_scam_wordcloud.png")
 
 full_text_2 = df_legit_text['text'].astype('str')
 one_big_string_2 = ''.join(full_text_2.tolist())
 wordcloud2 = WordCloud(width=1000, height=1000, max_words=50, background_color='white', min_word_length=3).generate(one_big_string_2)
+wordcloud2.to_file("overall_safe_wordcloud.png")
 
 with st.container():
     col1, col2 = st.columns(2)
 
     with col1:
-        st.set_option('deprecation.showPyplotGlobalUse', False)
-        plt.imshow(wordcloud1, interpolation='bilinear')
-        plt.axis("off")
-        plt.show()
-        st.pyplot()
+        st.image('images/overall_scam_wordcloud.png')
+
 
     with col2:
-        st.set_option('deprecation.showPyplotGlobalUse', False)
-        plt.imshow(wordcloud2, interpolation='bilinear')
-        plt.axis("off")
-        plt.show()
-        st.pyplot()
+        st.image('images/overall_safe_wordcloud.png')
+
+
+
+
+        # plt.imshow(wordcloud2, interpolation='bilinear')
+        # st.set_option('deprecation.showPyplotGlobalUse', False)
+        # plt.axis("off")
+        # plt.show()
+        # st.pyplot()
 
 
 
