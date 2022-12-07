@@ -51,23 +51,19 @@ def load_csv_text():
 df_scam_text, df_legit_text = load_csv_text()
 
 ##Generating Wordcloud
-full_text = df_scam_text['text'][0]#.astype('str')
-#one_big_string = ''.join(full_text.tolist())
-wordcloud_scam = WordCloud(width=1000, height=1000, max_words=50).generate(full_text)
-wordcloud_scam.to_file("scam_words.png")
-#Generating second Wordsmcacloud
-full_text = df_legit_text['text'][1]#.astype('str')
-#one_big_string = ''.join(full_text.tolist())
-wordcloud_legit = WordCloud(width=1000, height=1000, max_words=50).generate(full_text)
-wordcloud_legit.to_file("legit_words.png")
+full_text_scam = df_scam_text['text'][2]#.astype('str')
 
-wordcloud_scam2 = WordCloud(width=1000, height=1000, max_words=50).generate(full_text)
-wordcloud_scam2.to_file("scam_words1.png")
-#Generating second Wordsmcacloud
-full_text = df_legit_text['text'][1]#.astype('str')
+breakpoint()
+
 #one_big_string = ''.join(full_text.tolist())
-wordcloud_legit2 = WordCloud(width=1000, height=1000, max_words=50).generate(full_text)
-wordcloud_legit.to_file("legit_words2.png")
+wordcloud = WordCloud(width=1000, height=1000, max_words=50).generate(full_text_scam[0])
+wordcloud.to_file("scam_words.png")
+#Generating second Wordcloud
+full_text_legit = df_legit_text['text'][2]#.astype('str')
+#one_big_string = ''.join(full_text.tolist())
+wordcloud_2 = WordCloud(width=1000, height=1000, max_words=50).generate(full_text_legit[0])
+wordcloud.to_file("legit_words.png")
+
 # Display Wordclouds side by side:
 
 count = 0
