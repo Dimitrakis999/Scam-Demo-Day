@@ -70,6 +70,8 @@ df_scam_text, df_legit_text = load_csv_text()
 # wordcloud_legit5.to_file("legit_words5.png")
 
 count = 0
+if 'key' not in st.session_state:
+    st.session_state['key'] = 0
 
 answer1 = 'Website A'
 
@@ -91,8 +93,8 @@ if result1 == '':
 
 elif result1 == answer1:
     st.markdown('YOU DID IT')
-    st.balloons()
-    count +=1
+    #st.balloons()
+    st.session_state['key'] += 1
 
 else:
     st.markdown('YOU BEEN SCAMMED!')
@@ -119,8 +121,8 @@ if result2 == '':
 
 elif result2 == answer2:
     st.markdown('YOU DID IT')
-    st.balloons()
-    count +=1
+    #st.balloons()
+    st.session_state['key'] += 1
 
 else:
     st.markdown('YOU BEEN SCAMMED!')
@@ -145,8 +147,9 @@ if result3 == '':
 
 elif result3 == answer3:
     st.markdown('YOU DID IT')
-    st.balloons()
-    count +=1
+    #st.balloons()
+    st.session_state['key'] += 1
+
 
 else:
     st.markdown('YOU BEEN SCAMMED!')
@@ -172,7 +175,8 @@ if result4 == '':
 
 elif result4 == answer4:
     st.markdown('YOU DID IT')
-    st.balloons()
+    #st.balloons()
+    st.session_state['key'] += 1
     count +=1
 
 else:
@@ -197,8 +201,9 @@ if result5 == '':
 
 elif result5 == answer5:
     st.markdown('YOU DID IT')
-    st.balloons()
-    count +=1
+    #st.balloons()
+    st.session_state['key'] += 1
+
 
 else:
     st.markdown('YOU BEEN SCAMMED!')
@@ -207,7 +212,7 @@ else:
 
 
 #Audience score
-st.write(f"You got {count} out of 5 correct")
+st.write(f"You got {st.session_state['key']} out of 5 correct")
 
 #Model score
 st.write('Our model got 4 out of 5')
