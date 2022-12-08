@@ -1,33 +1,31 @@
 
 import streamlit as st
-import numpy as np
-import pandas as pd
-from wordcloud import WordCloud
-import matplotlib.pyplot as plt
-from wordcloud import STOPWORDS
-from PIL import Image
-import pickle
-
-from scam_spotter_web.main import predict_dual, predict_nlp
-from scam_spotter_web.load_models import load_model
-
+# import numpy as np
+# import pandas as pd
+# from wordcloud import WordCloud
+# import matplotlib.pyplot as plt
+# from wordcloud import STOPWORDS
+# from PIL import Image
+# import pickle
+from keras.models import load_model
+from scam_spotter_web.main import predict_nlp
+#from scam_spotter_web.load_models import load_model
+#st.session_state.update(st.session_state)
 # Live demo of model
 # Takes URL and spits out image (and wordcloud)
 # And gives us a probability that website is scam
-
-
-DUAL_MODEL_PATH = 'models/dual_feed_model'
 NLP_MODEL_PATH = 'models/nlp_model.h5'
-MODEL = None
+if "model" not in st.session_state:
+    st.session_state["model"] = load_model(NLP_MODEL_PATH)
+#DUAL_MODEL_PATH = 'models/dual_feed_model'
+NLP_MODEL_PATH = 'models/nlp_model.h5'
+#MODEL = load_model(NLP_MODEL_PATH)
 
-# with open('models/nlp_model_pickle.pickle', 'rb') as f:
-#     MODEL = pickle.load(f)
-
-@st.experimental_memo(show_spinner=False)
-def st_load_model():
-    mo = load_model(NLP_MODEL_PATH)
-    return mo
-MODEL = st_load_model()
+#@st.experimental_memo(show_spinner=False)
+#def st_load_model():
+#    mo = load_model(NLP_MODEL_PATH)
+#    return mo
+#MODEL = st_load_model()
 
 st.markdown('## Is that website a scam?')
 
@@ -39,7 +37,7 @@ make_predict = st.button('Click to see if that website is a scam!')
 
 ## NLP Prediction
 if make_predict:
-    prediction = predict_nlp(MODEL, website)
+    prediction = predict_nlp(st.session_state["model"], website)
 
     if prediction:
         out_text = prediction[0][0] * 100

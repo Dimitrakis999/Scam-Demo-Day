@@ -1,11 +1,11 @@
 import streamlit as st
-import numpy as np
+#import numpy as np
 import pandas as pd
 from wordcloud import WordCloud
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 from wordcloud import STOPWORDS
-from PIL import Image
-import random
+#from PIL import Image
+#import random
 
 #website = st.text_input("Enter the URL here")
 
@@ -70,10 +70,12 @@ df_scam_text, df_legit_text = load_csv_text()
 # wordcloud_legit5.to_file("legit_words5.png")
 
 count = 0
-if 'key' not in st.session_state:
-    st.session_state['key'] = 0
 
-answer1 = 'Website A'
+
+if 'key2' not in st.session_state:
+    st.session_state['key2'] = 0
+
+answer11 = 'Website A'
 
 with st.container():
     col1, col2 = st.columns(2)
@@ -84,51 +86,48 @@ with st.container():
     with col2:
         st.image('images/wordclouds/safe/legit_words.png')
 
-with st.form(key='first_q', clear_on_submit=True):
-    result1 = st.selectbox(label='Which website?', options=['','Website A', 'Website B'])
+with st.form(key='first_q2', clear_on_submit=True):
+    result11 = st.selectbox(label='Which website?', options=['','Website A', 'Website B'])
     st.form_submit_button(label='Submit')
 
-if result1 == '':
+if result11 == '':
     st.markdown('')
 
-elif result1 == answer1:
+elif result11 == answer11:
     st.markdown('YOU DID IT')
-    #st.balloons()
-    st.session_state['key'] += 1
+    #st.session_state['key2'] += 1
 
 else:
     st.markdown('YOU BEEN SCAMMED!')
 
-
-
-answer2 = 'Website B'
+answer22 = 'Website B'
 
 with st.container():
     col1, col2 = st.columns(2)
 
     with col1:
-        st.image('images/wordclouds/scam/scam_words2.png')
-
-    with col2:
         st.image('images/wordclouds/safe/legit_words2.png')
 
-with st.form(key='second_q', clear_on_submit=True):
-    result2 = st.selectbox(label='Which website?', options=['','Website A', 'Website B'])
+    with col2:
+        st.image('images/wordclouds/scam/scam_words2.png')
+
+with st.form(key='second_q2', clear_on_submit=True):
+    result22 = st.selectbox(label='Which website?', options=['','Website A', 'Website B'])
     st.form_submit_button(label='Submit')
 
-if result2 == '':
+if result22 == '':
     st.markdown('')
 
-elif result2 == answer2:
+elif result22 == answer22:
     st.markdown('YOU DID IT')
-    #st.balloons()
-    st.session_state['key'] += 1
+    #st.session_state['key2'] += 1
 
 else:
     st.markdown('YOU BEEN SCAMMED!')
 
 
-answer3 = 'Website B'
+answer33 = 'Website A'
+
 with st.container():
     col1, col2 = st.columns(2)
 
@@ -138,25 +137,23 @@ with st.container():
     with col2:
         st.image('images/wordclouds/safe/legit_words3.png')
 
-with st.form(key='third_q', clear_on_submit=True):
-    result3 = st.selectbox(label='Which website?', options=['','Website A', 'Website B'])
+with st.form(key='third_q2', clear_on_submit=True):
+    result33 = st.selectbox(label='Which website?', options=['','Website A', 'Website B'])
     st.form_submit_button(label='Submit')
 
-if result3 == '':
+if result33 == '':
     st.markdown('')
 
-elif result3 == answer3:
+elif result33 == answer33:
     st.markdown('YOU DID IT')
-    #st.balloons()
-    st.session_state['key'] += 1
-
+    #st.session_state['key2'] += 1
 
 else:
     st.markdown('YOU BEEN SCAMMED!')
 
 
 
-answer4 = 'Website A'
+answer44 = 'Website A'
 with st.container():
     col1, col2 = st.columns(2)
 
@@ -166,53 +163,58 @@ with st.container():
     with col2:
         st.image('images/wordclouds/safe/legit_words4.png')
 
-with st.form(key='fourth_q', clear_on_submit=True):
-    result4 = st.selectbox(label='Which website?', options=['','Website A', 'Website B'])
+with st.form(key='fourth_q2', clear_on_submit=True):
+    result44 = st.selectbox(label='Which website?', options=['','Website A', 'Website B'])
     st.form_submit_button(label='Submit')
 
-if result4 == '':
+if result44 == '':
     st.markdown('')
 
-elif result4 == answer4:
+elif result44 == answer44:
     st.markdown('YOU DID IT')
-    #st.balloons()
-    st.session_state['key'] += 1
-    count +=1
+    #st.session_state['key2'] += 1
 
 else:
     st.markdown('YOU BEEN SCAMMED!')
 
-answer5 = 'Website B'
+answer55 = 'Website B'
 with st.container():
     col1, col2 = st.columns(2)
 
     with col1:
-        st.image('images/wordclouds/scam/scam_words5.png')
-
-    with col2:
         st.image('images/wordclouds/safe/legit_words5.png')
 
-with st.form(key='fifth_q', clear_on_submit=True):
-    result5 = st.selectbox(label='Which website?', options=['','Website A', 'Website B'])
+    with col2:
+        st.image('images/wordclouds/scam/scam_words5.png')
+
+with st.form(key='fifth_q2', clear_on_submit=True):
+    result55 = st.selectbox(label='Which website?', options=['','Website A', 'Website B'])
     st.form_submit_button(label='Submit')
 
-if result5 == '':
+if result55 == '':
     st.markdown('')
 
-elif result5 == answer5:
+elif result55 == answer55:
     st.markdown('YOU DID IT')
-    #st.balloons()
-    st.session_state['key'] += 1
-
+    #st.session_state['key2'] += 1
 
 else:
     st.markdown('YOU BEEN SCAMMED!')
 
-
-
+counter = 0
+if result11 == answer11:
+    counter += 1
+if result22 == answer22:
+    counter += 1
+if result33 == answer33:
+    counter += 1
+if result44 == answer44:
+    counter += 1
+if result55 == answer55:
+    counter += 1
 
 #Audience score
-st.write(f"You got {st.session_state['key']} out of 5 correct")
+st.write(f"You got {counter} out of 5 correct")
 
 #Model score
 st.write('Our model got 4 out of 5')

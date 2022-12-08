@@ -1,9 +1,6 @@
 from scam_spotter_web.scrape import scrape_photo_text, scrape_text
 from scam_spotter_web.text_processing import preprocess_pad
-from scam_spotter_web.load_models import load_model
-# from scam_spotter_web.load_models import predict_dual, predict_nlp
 
-import tensorflow as tf
 
 def predict_dual(model, url):
 
