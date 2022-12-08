@@ -6,6 +6,7 @@ from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 from wordcloud import STOPWORDS
 from PIL import Image
+import pickle
 
 from scam_spotter_web.main import predict_dual, predict_nlp
 from scam_spotter_web.load_models import load_model
@@ -16,8 +17,17 @@ from scam_spotter_web.load_models import load_model
 
 
 DUAL_MODEL_PATH = 'models/dual_feed_model'
-NLP_MODEL_PATH = 'models/nlp_model'
-MODEL = load_model(NLP_MODEL_PATH)
+NLP_MODEL_PATH = 'models/nlp_model.h5'
+MODEL = None
+
+# with open('models/nlp_model_pickle.pickle', 'rb') as f:
+#     MODEL = pickle.load(f)
+
+@st.experimental_memo(show_spinner=False)
+def st_load_model():
+    mo = load_model(NLP_MODEL_PATH)
+    return mo
+MODEL = st_load_model()
 
 st.markdown('## Is that website a scam?')
 
