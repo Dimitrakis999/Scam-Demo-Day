@@ -1,11 +1,13 @@
 import numpy as np
-
-import nltk
 from nltk.corpus import stopwords
 import string
-from gensim.models import Word2Vec
-import gensim.downloader as api
+#from gensim.models import Word2Vec
+#import gensim.downloader as api
+import streamlit as st
 from keras.preprocessing.sequence import pad_sequences
+
+
+word2vec_transfer = st.session_state["giga"]
 
 def clean(text):
     text = text.split()
@@ -50,7 +52,6 @@ def embedding(word2vec, sentences):
 def preprocess_pad(list_text):
     list_ = text_cleaner(list_text)
 
-    word2vec_transfer = api.load('glove-wiki-gigaword-100')
 
     list_ = embedding(word2vec_transfer, list_)
     list_ = pad_sequences(list_, dtype='float32', padding='post', maxlen=200)

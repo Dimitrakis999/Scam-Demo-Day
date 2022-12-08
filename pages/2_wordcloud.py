@@ -1,11 +1,11 @@
 import streamlit as st
-import numpy as np
+#import numpy as np
 import pandas as pd
 from wordcloud import WordCloud
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 from wordcloud import STOPWORDS
-from PIL import Image
-import random
+#from PIL import Image
+#import random
 
 #website = st.text_input("Enter the URL here")
 
@@ -70,8 +70,8 @@ df_scam_text, df_legit_text = load_csv_text()
 # wordcloud_legit5.to_file("legit_words5.png")
 
 count = 0
-if 'key' not in st.session_state:
-    st.session_state['key'] = 0
+if 'key2' not in st.session_state:
+    st.session_state['key2'] = 0
 
 answer1 = 'Website A'
 
@@ -94,7 +94,7 @@ if result1 == '':
 elif result1 == answer1:
     st.markdown('YOU DID IT')
     #st.balloons()
-    st.session_state['key'] += 1
+    st.session_state['key2'] += 1
 
 else:
     st.markdown('YOU BEEN SCAMMED!')
@@ -122,7 +122,7 @@ if result2 == '':
 elif result2 == answer2:
     st.markdown('YOU DID IT')
     #st.balloons()
-    st.session_state['key'] += 1
+    st.session_state['key2'] += 1
 
 else:
     st.markdown('YOU BEEN SCAMMED!')
@@ -148,7 +148,7 @@ if result3 == '':
 elif result3 == answer3:
     st.markdown('YOU DID IT')
     #st.balloons()
-    st.session_state['key'] += 1
+    st.session_state['key2'] += 1
 
 
 else:
@@ -176,7 +176,7 @@ if result4 == '':
 elif result4 == answer4:
     st.markdown('YOU DID IT')
     #st.balloons()
-    st.session_state['key'] += 1
+    st.session_state['key2'] += 1
     count +=1
 
 else:
@@ -202,7 +202,7 @@ if result5 == '':
 elif result5 == answer5:
     st.markdown('YOU DID IT')
     #st.balloons()
-    st.session_state['key'] += 1
+    st.session_state['key2'] += 1
 
 
 else:
@@ -212,7 +212,7 @@ else:
 
 
 #Audience score
-st.write(f"You got {st.session_state['key']} out of 5 correct")
+st.write(f"You got {st.session_state['key2']} out of 5 correct")
 
 #Model score
 st.write('Our model got 4 out of 5')

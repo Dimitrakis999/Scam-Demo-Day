@@ -1,14 +1,22 @@
 from style import get_css
 import streamlit as st
-import numpy as np
-import pandas as pd
-from wordcloud import WordCloud
-import matplotlib.pyplot as plt
-from wordcloud import STOPWORDS
+#import numpy as np
+#import pandas as pd
+#from wordcloud import WordCloud
+#import matplotlib.pyplot as plt
+#from wordcloud import STOPWORDS
 from PIL import Image
 import random
+import gensim.downloader as api
+from keras.models import load_model
+NLP_MODEL_PATH = 'models/nlp_model.h5'
+model = None
 
 #website = st.text_input("Enter the URL here")
+if "model" not in st.session_state:
+    st.session_state["model"] = load_model(NLP_MODEL_PATH)
+if "giga" not in st.session_state:
+    st.session_state["giga"] = api.load('glove-wiki-gigaword-100')
 
 st.markdown(get_css(),unsafe_allow_html=True)
 
