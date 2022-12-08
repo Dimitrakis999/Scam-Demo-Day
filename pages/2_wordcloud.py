@@ -210,6 +210,7 @@ else:
 st.write(f"You got {count} out of 5 correct")
 
 #Model score
+st.write('Our model got 4 out of 5')
 
 
 #Display overall wordcloud for scam and safe websites
