@@ -200,3 +200,4 @@ st.write(f"The dumbest model flipped a coin and got a score of {dumb_score}")
 st.write(f"You got {count} out of 5 correct")
 
 #Model score
+st.write('Our model got 3 out of 5')
