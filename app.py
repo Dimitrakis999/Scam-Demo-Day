@@ -31,7 +31,8 @@ st.markdown("""# CAN YOU SPOT A SCAM WEBSITE?""")
 
 st.write(' ')
 
-
+if 'key' not in st.session_state:
+    st.session_state['key'] = 0
 count = 0
 
 answer1 = 'WEBSITE A'
@@ -57,8 +58,8 @@ if result1 == '':
 
 elif result1 == answer1:
     st.markdown('YOU DID IT')
-    st.balloons()
-    count +=1
+    #st.balloons()
+    st.session_state['key'] += 1
 
 else:
     st.markdown('YOU BEEN SCAMMED!')
@@ -89,8 +90,8 @@ if result2 == '':
 
 elif result2 == answer2:
     st.markdown('YOU DID IT')
-    st.balloons()
-    count +=1
+    #st.balloons()
+    st.session_state['key'] += 1
 
 else:
     st.markdown('YOU BEEN SCAMMED!')
@@ -118,8 +119,8 @@ if result3 == '':
 
 elif result3 == answer3:
     st.markdown('YOU DID IT')
-    st.balloons()
-    count +=1
+    #st.balloons()
+    st.session_state['key'] += 1
 
 else:
     st.markdown('YOU BEEN SCAMMED!')
@@ -146,8 +147,8 @@ if result4 == '':
 
 elif result4 == answer4:
     st.markdown('YOU DID IT')
-    st.balloons()
-    count +=1
+    #st.balloons()
+    st.session_state['key'] += 1
 
 else:
     st.markdown('YOU BEEN SCAMMED!')
@@ -176,8 +177,8 @@ if result5 == '':
 
 elif result5 == answer5:
     st.markdown('YOU DID IT')
-    st.balloons()
-    count +=1
+    #st.balloons()
+    st.session_state['key'] += 1
 
 else:
     st.markdown('YOU BEEN SCAMMED!')
@@ -197,7 +198,7 @@ st.write(f"The dumbest model flipped a coin and got a score of {dumb_score}")
 
 
 #Audience score
-st.write(f"You got {count} out of 5 correct")
+st.write(f"You got {st.session_state['key']} out of 5 correct")
 
 #Model score
 st.write('Our model got 3 out of 5')
